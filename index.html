@@ -6,42 +6,25 @@
   <title>Senior Stimulus Assistant</title>
   <style>
     /* ----- Base & Reset ----- */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; }
     body {
       font-family: –apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.5;
       color: #333;
-      background-color: #fff9e6; /* soft cream‑yellow */
+      background-color: #fff9e6;
     }
-    img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; text-decoration: none; }
-    .container {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
+    .container { max-width: 640px; margin: 0 auto; padding: 0 1rem; }
 
-    /* ----- Header / Hero ----- */
-    header {
-      padding: 2rem 0 1rem;
-      text-align: center;
-    }
+    /* ----- Header ----- */
+    header { padding: 2rem 0 1rem; text-align: center; }
     header h1 {
       font-size: 2rem;
-      color: #f5a76f; /* peach tone */
+      color: #f5a76f;
       margin-bottom: 0.5rem;
     }
-    header p {
-      font-size: 1rem;
-      color: #555;
-    }
+    header p { font-size: 1rem; color: #555; }
 
     /* ----- CTA ----- */
     .hero-cta {
@@ -49,22 +32,21 @@
       text-align: center;
     }
     .btn-primary {
-      display: inline-block;
-      background-color: #f28b82; /* gentle coral red */
+      background-color: #f28b82;
       color: #fff;
       font-size: 1.125rem;
       padding: 0.75rem 1.5rem;
       border-radius: 0.5rem;
+      display: inline-block;
       transition: background-color 0.2s ease;
     }
-    .btn-primary:hover {
-      background-color: #e3716d;
-    }
+    .btn-primary:hover { background-color: #e3716d; }
 
     /* ----- Trust Badges ----- */
     .badges {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      gap: 2rem;
       margin: 2rem 0;
     }
     .badge {
@@ -73,11 +55,10 @@
       color: #555;
     }
     .badge svg {
-      display: block;
-      margin: 0 auto 0.25rem;
+      margin-bottom: 0.25rem;
       width: 1.5rem;
       height: 1.5rem;
-      fill: #7cbfbc; /* badge blue */
+      fill: #7cbfbc;
     }
 
     /* ----- Benefits ----- */
@@ -89,29 +70,24 @@
     }
     .benefits h2 {
       font-size: 1.25rem;
-      color: #f5a76f; /* peach tone */
+      color: #f5a76f;
       margin-bottom: 0.75rem;
       text-align: center;
     }
-    .benefit-list {
-      list-style: none;
-    }
+    .benefit-list { list-style: none; }
     .benefit-list li {
       display: flex;
       align-items: flex-start;
       margin-bottom: 0.75rem;
     }
     .benefit-list li::before {
-      content: "✔";            /* check mark */
-      color: #7cbfbc;          /* badge blue */
+      content: "✔";
+      color: #7cbfbc;
       font-size: 1rem;
       margin-right: 0.5rem;
       line-height: 1.2;
     }
-    .benefit-list li span {
-      font-size: 0.95rem;
-      color: #333;
-    }
+    .benefit-list li span { font-size: 0.95rem; }
 
     /* ----- Testimonials ----- */
     .testimonials {
@@ -155,7 +131,7 @@
 
   <header class="container">
     <h1>Seniors: Claim Your $2,000 Stimulus</h1>
-    <p>Fast, free, and completely risk‑free. Discover if you qualify today.</p>
+    <p>Fast, free, and completely risk-free. Discover if you qualify today.</p>
   </header>
 
   <div class="container hero-cta">
@@ -181,8 +157,8 @@
     <h2>Why Seniors Love It</h2>
     <ul class="benefit-list">
       <li><span>Average $2,000 per approved claim</span></li>
-      <li><span>Complete our simple steps in under 60 seconds</span></li>
-      <li><span>Designed exclusively for 65 and older</span></li>
+      <li><span>Complete our simple steps in under 60 seconds</span></li>
+      <li><span>Designed exclusively for 65 and older</span></li>
       <li><span>Funds sent straight to your inbox</span></li>
     </ul>
   </div>
@@ -190,11 +166,11 @@
   <div class="container testimonials">
     <blockquote>
       “I used my check to pay July’s electric bill—couldn’t believe how easy it was!”  
-      <cite>— Ellen K., Ohio</cite>
+      <cite>— Ellen K., Ohio</cite>
     </blockquote>
     <blockquote>
       “No tricks, no fees. Got mine in two days. Lifesaver for us seniors!”  
-      <cite>— Frank T., Florida</cite>
+      <cite>— Frank T., Florida</cite>
     </blockquote>
   </div>
 
