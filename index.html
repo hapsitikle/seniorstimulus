@@ -161,6 +161,85 @@
       padding: 1.5rem 0;
     }
 
+    /* Problem-Solution Section Styles */
+.problem-solution-section {
+  background-color: #fff;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #f5a76f;
+}
+
+.problem-solution-section h2 {
+  font-size: 1.3rem;
+  color: #f5a76f;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.problem-part {
+  margin-bottom: 1.25rem;
+}
+
+.problem-part h3 {
+  font-size: 1rem;
+  color: #e74c3c;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.problem-part h3::before {
+  content: "⚠️";
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.solution-part h3 {
+  font-size: 1rem;
+  color: #27ae60;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.solution-part h3::before {
+  content: "✅";
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.problem-solution-section p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0.75rem;
+}
+
+.solution-part {
+  background-color: #f8fff8;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e8f5e8;
+}
+
+/* Responsive adjustments */
+@media (min-width: 480px) {
+  .problem-solution-section {
+    padding: 2rem 1.5rem;
+  }
+  .problem-solution-section h2 {
+    font-size: 1.5rem;
+  }
+  .problem-part h3,
+  .solution-part h3 {
+    font-size: 1.1rem;
+  }
+  .problem-solution-section p {
+    font-size: 1rem;
+  }
+}
+
     /* ----- Responsive tweaks ----- */
     @media (min-width: 480px) {
       header h1 { font-size: 2.25rem; }
@@ -200,16 +279,63 @@
     </div>
   </div>
 
-  <!-- Benefits -->
-  <div class="container benefits">
-    <h2>Why Seniors Love It</h2>
-    <ul class="benefit-list">
-      <li><span>Average $2,000 per approved claim</span></li>
-      <li><span>Complete our simple steps in under 60 seconds</span></li>
-      <li><span>Designed exclusively for 65 and older</span></li>
-      <li><span>Funds sent straight to your inbox</span></li>
-    </ul>
+  <div class="container">
+  <div class="problem-solution-section">
+    <h2>Understanding the Proposed Stimulus Check</h2>
+    
+    <div class="problem-part">
+      <h3>The Challenge Seniors Face</h3>
+      <p>The proposed $2000 stimulus check is a financial relief measure designed to support senior citizens (generally aged 65 years and over) in managing their everyday expenses. The rationale behind this proposal lies in the unique challenges faced by many seniors. Fixed incomes from Social Security benefits or pensions often struggle to keep pace with rising costs of living, including housing, healthcare, and basic necessities.</p>
+    </div>
+    
+    <div class="solution-part">
+      <h3>How This Helps</h3>
+      <p>The additional financial assistance provided by a stimulus check could significantly impact the financial stability of senior citizens. It's important to note that this is still a proposal, and there's no guarantee it will be implemented.</p>
+    </div>
   </div>
+</div>
+
+<!-- Section 2: Potential Benefits for Seniors -->
+<div class="container">
+  <div class="problem-solution-section">
+    <h2>Potential Benefits for Seniors</h2>
+    
+    <div class="problem-part">
+      <h3>Current Financial Struggles</h3>
+      <p>If approved, the $2000 stimulus check could offer significant financial relief for senior citizens across the United States. Many seniors face mounting pressures from inflation, rising healthcare costs, and inadequate fixed incomes that haven't kept pace with today's expenses.</p>
+    </div>
+    
+    <div class="solution-part">
+      <h3>Four Key Benefits</h3>
+      <p><strong>Improved Financial Stability:</strong> For seniors on fixed incomes, the stimulus check could be a game-changer, helping bridge the gap between income and rising expenses.</p>
+      <p><strong>Meeting Basic Needs:</strong> Additional funds could cover essential living costs like rent, utilities, groceries, and transportation, alleviating financial pressure.</p>
+      <p><strong>Managing Healthcare Costs:</strong> Help cover medical bills, prescription medications, and insurance premiums, ensuring access to necessary healthcare services.</p>
+      <p><strong>Peace of Mind:</strong> Financial security contributes significantly to overall well-being, providing relief for seniors struggling financially.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How Seniors Could Use the Stimulus Check -->
+<div class="container">
+  <div class="problem-solution-section">
+    <h2>How Seniors Could Use the Stimulus Check (if Approved)</h2>
+    
+    <div class="problem-part">
+      <h3>Everyday Expenses Are Overwhelming</h3>
+      <p>While the specific details of the program are yet to be determined, seniors face mounting costs across multiple areas of their daily lives. From basic utilities to healthcare emergencies, every expense adds up quickly on a fixed income.</p>
+    </div>
+    
+    <div class="solution-part">
+      <h3>Practical Uses for Relief</h3>
+      <p><strong>Essential Expenses:</strong> Rent, mortgage payments, utilities (electricity, water, gas) that keep getting more expensive each year.</p>
+      <p><strong>Groceries & Household Supplies:</strong> Food, personal care items, and cleaning supplies that are necessities, not luxuries.</p>
+      <p><strong>Healthcare Costs:</strong> Medical bills, co-pays, deductibles, prescription medications, and insurance premiums.</p>
+      <p><strong>Home Improvements:</strong> Safety modifications like grab bars or ramps to help seniors age in place safely.</p>
+      <p><strong>Debt Relief:</strong> Pay down existing debt, reducing financial stress and monthly obligations.</p>
+      <p><strong>Supporting Local Needs:</strong> Invest in local services that cater to seniors' needs, like grocery delivery or pharmacy services.</p>
+    </div>
+  </div>
+</div>
 
   <!-- Testimonials -->
   <div class="container testimonials">
