@@ -6,43 +6,43 @@
   <title>Senior Stimulus Assistant</title>
   <style>
     /* ----- Base & Reset ----- */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     html { font-size: 16px; }
     body {
       font-family: –apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.5;
       color: #333;
-      background-color: #fff9e6;
+      background-color: #fff9e6; /* soft cream‑yellow */
     }
     a { color: inherit; text-decoration: none; }
     .container { max-width: 640px; margin: 0 auto; padding: 0 1rem; }
 
     /* ----- Header ----- */
-    header { padding: 2rem 0 1rem; text-align: center; }
+    header {
+      padding: 2rem 0 1rem;
+      text-align: center;
+    }
     header h1 {
       font-size: 2rem;
-      color: #f5a76f;
+      color: #f5a76f; /* peach tone */
       margin-bottom: 0.5rem;
     }
-    header p { font-size: 1rem; color: #555; }
+    header p {
+      font-size: 1rem;
+      color: #555;
+    }
 
     /* ----- CTA ----- */
-    /* ----- CTA ----- */
-.hero-cta {
-  text-align: center;
-  margin: 2rem 0;
-}
-
-/* ----- Trust Badges ----- */
-.badges {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 2rem auto;
-}
-
+    .hero-cta {
+      text-align: center;
+      margin: 2rem 0;
+    }
     .btn-primary {
-      background-color: #f28b82;
+      background-color: #f28b82; /* gentle coral red */
       color: #fff;
       font-size: 1.125rem;
       padding: 0.75rem 1.5rem;
@@ -50,20 +50,28 @@
       display: inline-block;
       transition: background-color 0.2s ease;
     }
-    .btn-primary:hover { background-color: #e3716d; }
+    .btn-primary:hover {
+      background-color: #e3716d;
+    }
 
     /* ----- Trust Badges ----- */
-    
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem auto;
+    }
     .badge {
       text-align: center;
       font-size: 0.875rem;
       color: #555;
     }
     .badge svg {
-      margin-bottom: 0.25rem;
+      display: block;
+      margin: 0 auto 0.25rem;
       width: 1.5rem;
       height: 1.5rem;
-      fill: #7cbfbc;
+      fill: #7cbfbc; /* badge‑blue */
     }
 
     /* ----- Benefits ----- */
@@ -87,12 +95,15 @@
     }
     .benefit-list li::before {
       content: "✔";
-      color: #7cbfbc;
+      color: #7cbfbc; /* badge‑blue */
       font-size: 1rem;
       margin-right: 0.5rem;
       line-height: 1.2;
     }
-    .benefit-list li span { font-size: 0.95rem; }
+    .benefit-list li span {
+      font-size: 0.95rem;
+      color: #333;
+    }
 
     /* ----- Testimonials ----- */
     .testimonials {
@@ -112,6 +123,34 @@
       font-size: 0.875rem;
       color: #666;
       margin-top: 0.5rem;
+    }
+
+    /* ----- Problem‑Solution Section ----- */
+    .problems h2 {
+      font-size: 1.5rem;
+      color: #4a90e2; /* badge‑blue */
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .problem-list {
+      list-style: none;
+      padding: 0;
+    }
+    .problem-item {
+      background-color: #fff;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .problem-item h3 {
+      font-size: 1.125rem;
+      color: #f5a76f; /* peach tone */
+      margin-bottom: 0.5rem;
+    }
+    .problem-item p {
+      font-size: 0.95rem;
+      color: #333;
     }
 
     /* ----- Footer ----- */
@@ -134,17 +173,18 @@
 </head>
 <body>
 
+  <!-- Hero -->
   <header class="container">
     <h1>Seniors: Claim Your $2,000 Stimulus</h1>
-    <p>Fast, free, and completely risk-free. Discover if you qualify today.</p>
+    <p>Fast, free, and completely risk‑free. Discover if you qualify today.</p>
   </header>
 
-  <div class="container">
-  <div class="hero-cta">
+  <!-- CTA #1 -->
+  <div class="container hero-cta">
     <a href="https://your-offer-link.example.com" class="btn-primary">Get My Stimulus Check</a>
   </div>
-</div>
 
+  <!-- Trust Badges -->
   <div class="container badges">
     <div class="badge">
       <svg viewBox="0 0 24 24"><path d="M12 2C9.8 2 8 3.8 8 6v4H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-2V6c0-2.2-1.8-4-4-4zm-2 4c0-1.1.9-2 2-2s2 .9 2 2v4H10V6zm8 6v8H6v-8h12z"/></svg>
@@ -160,6 +200,7 @@
     </div>
   </div>
 
+  <!-- Benefits -->
   <div class="container benefits">
     <h2>Why Seniors Love It</h2>
     <ul class="benefit-list">
@@ -170,23 +211,60 @@
     </ul>
   </div>
 
+  <!-- Testimonials -->
   <div class="container testimonials">
     <blockquote>
-      “I used my check to pay July’s electric bill—couldn’t believe how easy it was!”  
-      <cite>— Ellen K., Ohio</cite>
+      “I never thought a check could arrive so fast—I paid my July rent the very next day. Such a relief!”  
+      <cite>— Margaret L., Georgia</cite>
     </blockquote>
     <blockquote>
-      “No tricks, no fees. Got mine in two days. Lifesaver for us seniors!”  
-      <cite>— Frank T., Florida</cite>
+      “This helped me cover two months of prescriptions. No catches, no fees—just exactly what seniors need.”  
+      <cite>— Samuel P., Oregon</cite>
+    </blockquote>
+    <blockquote>
+      “My grocery bills were through the roof. With this check, I stocked up for the month and finally relaxed.”  
+      <cite>— Doris M., Michigan</cite>
     </blockquote>
   </div>
 
-  <div class="container">
-  <div class="hero-cta">
-    <a href="https://your-offer-link.example.com" class="btn-primary">Get My Stimulus Check</a>
+  <!-- Problem → Solution -->
+  <div class="container problems">
+    <h2>Facing These Challenges? We’ve Got You Covered.</h2>
+    <div class="problem-list">
+      <div class="problem-item">
+        <h3>💡 Skyrocketing Living Costs</h3>
+        <p>Many seniors struggle to keep up with rising rent, mortgage, and utility bills on a fixed income. 
+        <strong>Solution:</strong> Use your $2,000 check to bridge the gap—so you can stay comfortable at home.</p>
+      </div>
+      <div class="problem-item">
+        <h3>💡 Soaring Healthcare Expenses</h3>
+        <p>Prescription costs and medical bills can leave you choosing between medicine and meals.
+        <strong>Solution:</strong> Apply your stimulus funds toward co‑pays, insurance premiums, or any doctor’s visits.</p>
+      </div>
+      <div class="problem-item">
+        <h3>💡 Grocery &amp; Household Shortages</h3>
+        <p>It’s tough when staples and cleaning supplies keep getting more expensive.
+        <strong>Solution:</strong> Stock up on food, toiletries, and home essentials—without dipping into your savings.</p>
+      </div>
+      <div class="problem-item">
+        <h3>💡 Home Safety &amp; Accessibility</h3>
+        <p>Small home upgrades—like grab bars or ramps—often get pushed aside for lack of funds.
+        <strong>Solution:</strong> Invest in modifications that make daily life easier and safer.</p>
+      </div>
+      <div class="problem-item">
+        <h3>💡 Lingering Debt Stress</h3>
+        <p>Debt—from credit cards to medical loans—can feel like a weight you can’t shake.
+        <strong>Solution:</strong> Pay down balances and enjoy more breathing room each month.</p>
+      </div>
+    </div>
   </div>
-</div>
 
+  <!-- CTA #2 -->
+  <div class="container hero-cta">
+    <a href="https://your-offer-link.example.com" class="btn-primary">Yes, I Want My Check</a>
+  </div>
+
+  <!-- Footer -->
   <footer class="container">
     <p>This site is not affiliated with any government agency.</p>
     <p><a href="/privacy.html">Privacy Policy</a></p>
