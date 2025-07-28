@@ -102,7 +102,38 @@
 
 .step-number {
   background-color: #7cbfbc;
-  color:
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  min-width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-content {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+@media (min-width: 480px) {
+  .steps-section {
+    padding: 2rem 1.5rem;
+  }
+  .steps-section h2 {
+    font-size: 1.5rem;
+  }
+  .step-content {
+    font-size: 1rem;
+  }
+}
+
+  
 
     /* ----- Benefits ----- */
     .benefits {
