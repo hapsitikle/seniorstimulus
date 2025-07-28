@@ -1,481 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Senior Stimulus Assistant</title>
-  <style>
-    /* ----- Base & Reset ----- */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; }
-    body {
-      font-family: –apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.5;
-      color: #333;
-      background-color: #fff9e6;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 640px; margin: 0 auto; padding: 0 1rem; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Senior Stimulus Assistant</title>
 
-    /* ----- Header ----- */
-    header { padding: 2rem 0 1rem; text-align: center; }
-    header h1 {
-      font-size: 2rem;
-      color: #f5a76f;
-      margin-bottom: 0.5rem;
-      margin-top: 12px;
-    }
-    header p { font-size: 1rem; color: #555; }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    /* ----- CTA ----- */
-    /* ----- CTA ----- */
-.hero-cta {
-  text-align: center;
-  margin: 2rem 0;
+<style>
+/* ----------  Colour & Font tokens ---------- */
+:root{
+  --navy:#0F2C5E;
+  --navy‑light:#25457D;
+  --ivory:#FFFDF6;
+  --accent:#E84545;          /* CTA only */
+  --accent‑hover:#bf3737;
+  --border:#D4DDEB;
+  --success:#2E8B57;
 }
 
-/* ----- Trust Badges ----- */
-.badges {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 2rem auto;
+/* ----------  Resets ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Open Sans",Arial,sans-serif;background:var(--ivory);color:var(--navy);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,strong{font-family:"Merriweather",serif;font-weight:700}
+a{text-decoration:none;color:inherit}
+
+/* ----------  Layout helpers ---------- */
+.container{max-width:680px;margin:0 auto;padding:0 1.2rem}
+section{margin-block:2rem}
+
+/* ----------  Header  ---------- */
+header{text-align:center;padding-top:1.5rem}
+header h1{font-size:1.9rem;line-height:1.3}
+header p{font-size:1rem;color:var(--navy‑light);margin-top:.4rem}
+
+/* ----------  Primary CTA  ---------- */
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:.9rem 2rem;border-radius:4px;font-weight:600;transition:.2s}
+.cta:hover{background:var(--accent‑hover)}
+
+/* ----------  3‑step list  ---------- */
+.steps{border:1px solid var(--border);border-radius:6px;background:#fff;padding:1.5rem}
+.steps h2{text-align:center;font-size:1.25rem;margin-bottom:1.2rem}
+.step{display:flex;gap:1rem;padding:.85rem 0;border-top:1px solid var(--border)}
+.step:first-of-type{border-top:none}
+.step-num{min-width:2.25rem;height:2.25rem;border-radius:50%;background:var(--navy);color:#fff;font-weight:600;display:flex;align-items:center;justify-content:center}
+.step p{flex:1;font-size:.95rem}
+
+/* ----------  Trust symbols  ---------- */
+.badges{display:flex;justify-content:center;gap:2.5rem;margin-top:1.8rem}
+.badge{text-align:center;font-size:.8rem;color:var(--navy‑light)}
+.badge svg{width:1.6rem;height:1.6rem;fill:var(--navy);margin-bottom:.25rem}
+
+/* ----------  Problem–solution blocks ---------- */
+.card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--navy);border-radius:6px;padding:1.7rem}
+.card h2{font-size:1.25rem;margin-bottom:1rem;text-align:center}
+.card h3{font-size:1rem;margin-bottom:.5rem;display:inline-flex;align-items:center;gap:.4rem}
+.card .problem{color:#c0392b}
+.card .solution{color:var(--success);background:#F4FBF6;border:1px solid #CFE9D3;border-radius:4px;padding:1rem;margin-top:1rem}
+.card p{font-size:.95rem;color:var(--navy‑light);margin-bottom:.7rem}
+.solution p{margin-bottom:.5rem}
+
+/* ----------  Testimonials ---------- */
+.testimonials h2{text-align:center;font-size:1.25rem;margin-bottom:1rem}
+.quote{background:#F7FAFF;border-left:3px solid var(--navy);padding:1rem;border-radius:4px;font-style:italic;margin-bottom:1rem}
+.quote cite{display:block;font-style:normal;font-size:.8rem;text-align:right;color:var(--navy‑light);margin-top:.6rem}
+
+/* ----------  Footer ---------- */
+footer{text-align:center;font-size:.7rem;color:var(--navy‑light);padding:2rem 0 1rem}
+
+/* ----------  Media queries ---------- */
+@media(min-width:480px){
+  header h1{font-size:2.3rem}
+  .steps h2,.card h2,.testimonials h2{font-size:1.4rem}
 }
 
-    .btn-primary {
-      background-color: #e74c3c;
-      color: #fff;
-      font-size: 1.125rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      display: inline-block;
-      transition: background-color 0.2s ease;
-    }
-    .btn-primary:hover { background-color: #e3716d; }
+</style>
 
-    /* ----- Trust Badges ----- */
-    
-    .badge {
-      text-align: center;
-      font-size: 0.875rem;
-      color: #555;
-    }
-    .badge svg {
-      margin-bottom: 0.25rem;
-      width: 1.5rem;
-      height: 1.5rem;
-      fill: #7cbfbc;
-    }
-
-    /* ----- Steps Section ----- */
-.steps-section {
-  background-color: #fff;
-  padding: 1.5rem 1rem;
-  border-radius: 0.5rem;
-  margin: 2rem 0;
-  border: 2px solid #7cbfbc;
-}
-
-.steps-section h2 {
-  font-size: 1.3rem;
-  color: #f5a76f;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.steps-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.step-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 0.75rem;
-  background-color: #f8fff8;
-  border-radius: 0.375rem;
-  border: 1px solid #e8f5e8;
-}
-
-.step-number {
-  background-color: #7cbfbc;
-  color: white;
-  font-weight: bold;
-  font-size: 0.875rem;
-  padding: 0.5rem;
-  border-radius: 50%;
-  min-width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.step-content {
-  font-size: 0.95rem;
-  color: #333;
-  line-height: 1.4;
-}
-
-@media (min-width: 480px) {
-  .steps-section {
-    padding: 2rem 1.5rem;
-  }
-  .steps-section h2 {
-    font-size: 1.5rem;
-  }
-  .step-content {
-    font-size: 1rem;
-  }
-}
-
-  
-
-    /* ----- Benefits ----- */
-    .benefits {
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin-bottom: 2rem;
-    }
-    .benefits h2 {
-      font-size: 1.25rem;
-      color: #f5a76f;
-      margin-bottom: 0.75rem;
-      text-align: center;
-    }
-    .benefit-list { list-style: none; }
-    .benefit-list li {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 0.75rem;
-    }
-    .benefit-list li::before {
-      content: "✔";
-      color: #7cbfbc;
-      font-size: 1rem;
-      margin-right: 0.5rem;
-      line-height: 1.2;
-    }
-    .benefit-list li span { font-size: 0.95rem; }
-
-    /* Testimonials Section Styles */
-.testimonials-section {
-  background-color: #fff;
-}
-
-.testimonials-content {
-  padding: 0;
-}
-
-.testimonial-item {
-  background-color: #f8fff8;
-  border-left: 3px solid #7cbfbc;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.375rem;
-  font-style: italic;
-  border: 1px solid #e8f5e8;
-}
-
-.testimonial-item:last-child {
-  margin-bottom: 0;
-}
-
-.testimonial-item cite {
-  display: block;
-  text-align: right;
-  font-size: 0.875rem;
-  color: #666;
-  margin-top: 0.5rem;
-  font-style: normal;
-}
-
-    /* ----- Footer ----- */
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: #999;
-      padding: 1.5rem 0;
-    }
-
-    /* Problem-Solution Section Styles */
-.problem-solution-section {
-  background-color: #fff;
-  padding: 1.5rem 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
-  border-left: 3px solid #7cbfbc;
-}
-
-.problem-solution-section h2 {
-  font-size: 1.3rem;
-  color: #f5a76f;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.problem-part {
-  margin-bottom: 1.25rem;
-}
-
-.problem-part h3 {
-  font-size: 1rem;
-  color: #e74c3c;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.problem-part h3::before {
-  content: "⚠️";
-  margin-right: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.solution-part h3 {
-  font-size: 1rem;
-  color: #27ae60;
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-}
-
-.solution-part h3::before {
-  content: "✅";
-  margin-right: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.problem-solution-section p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 0.75rem;
-}
-
-.solution-part {
-  background-color: #f8fff8;
-  padding: 1rem;
-  border-radius: 0.375rem;
-  border: 1px solid #e8f5e8;
-}
-
-.benefits-grid {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-.benefit-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.benefit-item strong {
-  color: #333;
-  font-size: 0.9rem;
-  min-width: fit-content;
-}
-
-.benefit-item span {
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-/* Responsive adjustments */
-@media (min-width: 480px) {
-  .problem-solution-section {
-    padding: 2rem 1.5rem;
-  }
-  .problem-solution-section h2 {
-    font-size: 1.5rem;
-  }
-  .problem-part h3,
-  .solution-part h3 {
-    font-size: 1.1rem;
-  }
-  .problem-solution-section p {
-    font-size: 1rem;
-  }
-  .benefit-item strong,
-  .benefit-item span {
-    font-size: 0.95rem;
-  }
-}
-
-    /* ----- Responsive tweaks ----- */
-    @media (min-width: 480px) {
-      header h1 { font-size: 2.25rem; }
-      header {
-        margin-top: 10px;
-          }
-      .btn-primary {
-        font-size: 1.25rem;
-        padding: 1rem 2rem;
-      }
-    }
-  </style>
-  <!-- Meta Pixel Code -->
+<!-- Meta Pixel (lead fires on CTA click) -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1103973691621755');
-fbq('track', 'PageView');
+n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1103973691621755');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1103973691621755&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+src="https://www.facebook.com/tr?id=1103973691621755&ev=PageView&noscript=1"/></noscript>
+
 </head>
 <body>
 
-  <header class="container">
-    <h1>2,000$ Stimulus Check For Seniors</h1>
-    <p>Fast, free, and completely risk-free. Discover if you qualify now.</p>
-  </header>
+<!-- ---------------- Header ---------------- -->
+<header class="container">
+  <h1>$2,000 Stimulus Check for Seniors</h1>
+  <p>Fast, free and completely risk‑free — discover if you qualify now.</p>
+</header>
 
-  <div class="container">
-  <div class="hero-cta">
+<!-- ---------------- Hero CTA ---------------- -->
+<section class="container" style="text-align:center">
   <a href="https://rewarduplevel.com/aff_c?offer_id=2343&aff_id=134431"
-     class="btn-primary"
+     class="cta"
      onclick="fbq('track','Lead');">
-     Check My Eligibility Now
+     Check My Eligibility Now
   </a>
-</div>
+</section>
 
-</div>
+<!-- ---------------- 3‑Step Guide ---------------- -->
+<section class="container steps">
+  <h2>3 Quick Steps to Get Started</h2>
 
-  <!-- Insert this right after the first .hero-cta div -->
-<div class="container">
-  <div class="steps-section">
-    <h2>3 Simple Steps to Check Your Eligibility</h2>
-    
-    <ul class="steps-list">
-      <li class="step-item">
-        <div class="step-number">1</div>
-        <div class="step-content">Enter your zip code to see available funds in your area</div>
-      </li>
-      
-      <li class="step-item">
-        <div class="step-number">2</div>
-        <div class="step-content">Fill out your basic information form</div>
-      </li>
-      
-      <li class="step-item">
-        <div class="step-number">3</div>
-        <div class="step-content">Select which benefits interest you most and submit</div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-  <div class="container badges">
-    <div class="badge">
-      <svg viewBox="0 0 24 24"><path d="M12 2C9.8 2 8 3.8 8 6v4H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-2V6c0-2.2-1.8-4-4-4zm-2 4c0-1.1.9-2 2-2s2 .9 2 2v4H10V6zm8 6v8H6v-8h12z"/></svg>
-      <div>Secure SSL</div>
-    </div>
-    <div class="badge">
-      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 14h-2v-2h2zm0-4h-2V7h2z"/></svg>
-      <div>No Hidden Fees</div>
-    </div>
-    <div class="badge">
-      <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5zm0 2.18l5 1.78v4.03c0 4.01-2.77 8.14-5 9.46-2.23-1.32-5-5.45-5-9.46V5.96z"/></svg>
-      <div>Privacy Protected</div>
-    </div>
+  <div class="step">
+    <span class="step-num">1</span>
+    <p>Enter your ZIP code to see funds available in your area.</p>
   </div>
 
- 
-
-<div class="container">
-  <div class="problem-solution-section">
-    <h2>Understanding the Proposed Stimulus Check</h2>
-    
-    <div class="problem-part">
-      <h3>The Challenge Seniors Face</h3>
-      <p>The proposed $2000 stimulus check is a financial relief measure designed to support senior citizens (generally aged 65 years and over) in managing their everyday expenses. The rationale behind this proposal lies in the unique challenges faced by many seniors. Fixed incomes from Social Security benefits or pensions often struggle to keep pace with rising costs of living, including housing, healthcare, and basic necessities.</p>
-    </div>
-    
-    <div class="solution-part">
-      <h3>How This Helps</h3>
-      <p>The additional financial assistance provided by a stimulus check could significantly impact the financial stability of senior citizens. It's important to note that this is still a proposal, and there's no guarantee it will be implemented.</p>
-    </div>
+  <div class="step">
+    <span class="step-num">2</span>
+    <p>Fill out a short form with your basic information.</p>
   </div>
-</div>
 
-<!-- Section 3: How Seniors Could Use the Stimulus Check -->
-<div class="container">
-  <div class="problem-solution-section">
-    <h2>How Seniors Could Use the Stimulus Check</h2>
-    
-    <div class="problem-part">
-      <h3>Everyday Expenses Are Overwhelming</h3>
-      <p>While the specific details of the program are yet to be determined, seniors face mounting costs across multiple areas of their daily lives. From basic utilities to healthcare emergencies, every expense adds up quickly on a fixed income.</p>
-    </div>
-    
-    <div class="solution-part">
-      <h3>Practical Uses for Relief</h3>
-      <p><strong>Essential Expenses:</strong> Rent, mortgage payments, utilities (electricity, water, gas) that keep getting more expensive each year.</p>
-      <p><strong>Groceries & Household Supplies:</strong> Food, personal care items, and cleaning supplies that are necessities, not luxuries.</p>
-      <p><strong>Healthcare Costs:</strong> Medical bills, co-pays, deductibles, prescription medications, and insurance premiums.</p>
-      <p><strong>Home Improvements:</strong> Safety modifications like grab bars or ramps to help seniors age in place safely.</p>
-      <p><strong>Debt Relief:</strong> Pay down existing debt, reducing financial stress and monthly obligations.</p>
-      <p><strong>Supporting Local Needs:</strong> Invest in local services that cater to seniors' needs, like grocery delivery or pharmacy services.</p>
-    </div>
+  <div class="step">
+    <span class="step-num">3</span>
+    <p>Select the benefits that interest you and submit.</p>
   </div>
-</div>
+</section>
 
-  <!-- New Testimonials Section -->
-<div class="container">
-  <div class="problem-solution-section testimonials-section">
-    <h2>10,000+ Seniors Got Their Help</h2>
-    
-    <div class="testimonials-content">
-      <blockquote class="testimonial-item">
-        "At 74, I was choosing between my heart medication and groceries. This $2,000 gave me dignity back—I could afford both without asking my kids for help. For the first time in years, I slept peacefully."  
-        <cite>— Margaret S., Arizona</cite>
-      </blockquote>
-      
-      <blockquote class="testimonial-item">
-        "After 40 years of working and paying into the system, I felt forgotten. This check reminded me that my country still cares about people like me. I finally fixed my broken heater and bought my grandkids Christmas presents."  
-        <cite>— Robert L., Michigan</cite>
-      </blockquote>
-      
-      <blockquote class="testimonial-item">
-        "My Social Security barely covers rent. I was three months behind and facing eviction at 68. This stimulus saved my home and gave me hope that I won't be a burden to my family. I'm staying independent."  
-        <cite>— Dorothy M., Florida</cite>
-      </blockquote>
-    </div>
+<!-- ---------------- Trust Badges ---------------- -->
+<section class="container badges">
+  <div class="badge">
+    <svg viewBox="0 0 24 24"><path d="M12 2c-2.2 0-4 1.8-4 4v4H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-2V6c0-2.2-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2v4h-4V6c0-1.1.9-2 2-2z"/></svg>
+    <div>Secure SSL</div>
   </div>
-</div>
+  <div class="badge">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 10h2v6h-2zm0-4h2v2h-2z" fill="#fff"/></svg>
+    <div>No Hidden Fees</div>
+  </div>
+  <div class="badge">
+    <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5z"/></svg>
+    <div>Privacy Protected</div>
+  </div>
+</section>
 
-  <div class="container">
-  <div class="hero-cta">
+<!-- ---------------- Problem / Solution 1 ---------------- -->
+<section class="container card">
+  <h2>Understanding the Proposed Stimulus Check</h2>
+
+  <div class="problem">
+    <h3 class="problem">⚠ The Challenge Seniors Face</h3>
+    <p>Fixed Social Security incomes struggle to keep pace with rising costs of housing, healthcare and essentials. A proposed $2,000 check could provide vital relief.</p>
+  </div>
+
+  <div class="solution">
+    <h3 class="solution">✅ How This Could Help</h3>
+    <p>An extra $2,000 may cover urgent bills, prescriptions or home repairs — improving financial stability and peace of mind.</p>
+  </div>
+</section>
+
+<!-- ---------------- Problem / Solution 2 ---------------- -->
+<section class="container card">
+  <h2>How Seniors Might Use the Funds</h2>
+
+  <div class="problem">
+    <h3 class="problem">⚠ Everyday Expenses Are Overwhelming</h3>
+    <p>Utilities, groceries and medical costs keep climbing, quickly exhausting a fixed monthly budget.</p>
+  </div>
+
+  <div class="solution">
+    <h3 class="solution">✅ Practical Uses for Relief</h3>
+    <p><strong>Essential bills</strong> – rent, electricity, water.</p>
+    <p><strong>Healthcare</strong> – doctor visits, prescriptions, insurance premiums.</p>
+    <p><strong>Home safety</strong> – grab bars, ramps, emergency repairs.</p>
+    <p><strong>Debt reduction</strong> – pay down high‑interest balances to reduce stress.</p>
+  </div>
+</section>
+
+<!-- ---------------- Testimonials ---------------- -->
+<section class="container card testimonials">
+  <h2>10,000+ Seniors Already Helped</h2>
+
+  <blockquote class="quote">
+    “At 74 I was choosing between heart medicine and groceries.
+     The extra funds let me afford both — for the first time in years, I slept peacefully.”
+    <cite>— Margaret S., AZ</cite>
+  </blockquote>
+
+  <blockquote class="quote">
+    “This check reminded me that the country still cares about retirees.
+     I fixed my heater and bought my grandkids gifts.”
+    <cite>— Robert L., MI</cite>
+  </blockquote>
+
+  <blockquote class="quote">
+    “Facing eviction at 68, the stimulus saved my home and my independence.”
+    <cite>— Dorothy M., FL</cite>
+  </blockquote>
+</section>
+
+<!-- ---------------- Footer CTA ---------------- -->
+<section class="container" style="text-align:center">
   <a href="https://rewarduplevel.com/aff_c?offer_id=2343&aff_id=134431"
-     class="btn-primary"
+     class="cta"
      onclick="fbq('track','Lead');">
-     Check My Eligibility Now
+     Check My Eligibility Now
   </a>
-</div>
+</section>
 
-</div>
-
-  <footer class="container">
-    <p>This site is not affiliated with any government agency.</p>
-    <p><a href="/privacy.html">Privacy Policy</a></p>
-  </footer>
+<!-- ---------------- Footer ---------------- -->
+<footer class="container">
+  <p>This site is not affiliated with any government agency.</p>
+  <p><a href="/privacy.html">Privacy Policy</a></p>
+</footer>
 
 </body>
 </html>
